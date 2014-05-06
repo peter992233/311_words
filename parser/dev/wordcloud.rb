@@ -42,16 +42,19 @@ word_counts.each do |word, count|
 
   puts "#{word}:#{count}"
 
-ar["#{word}"]=#{count}
+ar["#{word}"]=count
 
     i+=1
 
-    if i > numofwords then
+    if i >= numofwords then
       break
     end
 end
 
-file.write(JSON.generate(ar,))
+puts ar
 
+file.write("[")
+file.write(JSON.generate(ar,))
+file.write("]")
 
 end
