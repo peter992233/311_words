@@ -29,6 +29,14 @@ return word_counts
 
 end
 
+def open_file(filename, word_counts)
+  s = File.open(filename,'r').read
+  s = s.encode("UTF-8", invalid: :replace, undef: :replace)
+  words=s.split
+  word_counts=fileParse(words, word_counts)
+return word_counts
+end
+
 def printout(word_counts, numofwords)
 file=File.open("wordweight.json", 'w')
 word_counts = word_counts.sort_by {|word,count| count}.reverse
